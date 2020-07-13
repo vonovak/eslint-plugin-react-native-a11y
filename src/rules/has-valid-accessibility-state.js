@@ -26,6 +26,9 @@ module.exports = {
       const attrName = elementType(node);
       if (attrName === 'accessibilityState') {
         const attrValue = getPropValue(node);
+        if (attrValue === undefined) {
+          return;
+        }
 
         const error = (message) =>
           context.report({
